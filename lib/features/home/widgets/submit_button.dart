@@ -25,7 +25,7 @@ class _SubmitButtonState extends State<SubmitButton> {
 
     bool isAllOptionsChosen = (_provider.sellerImage.isNotEmpty);
     return AnimatedContainer(
-      margin: const EdgeInsets.only(top: 30, left: 10, right: 10, bottom: 20),
+      margin: const EdgeInsets.only(top: 0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           color: isAllOptionsChosen ? Colors.black87 : Colors.transparent,
@@ -120,7 +120,6 @@ class _SubmitButtonState extends State<SubmitButton> {
       "name": itemName,
       "sellerName": auth.currentUser.email
     });
+    Provider.of<AllProvider>(context, listen: false).clearAll();
   }
-
-  submitData(BuildContext context) {}
 }

@@ -108,8 +108,6 @@ class _SellerPageState extends State<SellerPage> {
       onWillPop: () async {
         Provider.of<AllProvider>(context, listen: false).clearAll();
 
-        Navigator.pop(context);
-
         return false;
       },
       child: SafeArea(
@@ -120,18 +118,6 @@ class _SellerPageState extends State<SellerPage> {
           child: Scaffold(
               appBar: AppBar(
                 automaticallyImplyLeading: false,
-                leading: Transform.rotate(
-                  angle: -pi / 2,
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_back_ios, size: 16),
-                    onPressed: () {
-                      Provider.of<AllProvider>(context, listen: false)
-                          .clearAll();
-
-                      Navigator.pop(context);
-                    },
-                  ),
-                ),
                 backgroundColor: Colors.black87,
                 title: Text(
                   'Add Item',
@@ -193,6 +179,11 @@ class _SellerPageState extends State<SellerPage> {
                                 ),
                               ),
                             ),
+                          ),
+                          SizedBox(
+                            height: _sHeight * 0.5 -
+                                210 -
+                                kBottomNavigationBarHeight,
                           ),
                           SubmitButton(),
                         ],
